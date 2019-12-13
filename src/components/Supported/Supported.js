@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class Supported extends Component {
   render() {
     return (
-
+      <div>
+        <h3>How well are you being supported?</h3>
+        <label>Support?</label>
+        <input type="number"></input>
+        <button>Next</button>
+      </div>
     )
   }
 }
 
-export default connect()(Supported);
+export default Supported;
