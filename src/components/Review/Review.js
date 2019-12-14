@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Review extends Component {
+
+  handleClick = () =>
+    this.props.history.push('/success');
+
   render() {
     return (
-      <div></div>
+      <div>
+        <button onClick={this.handleClick}>Submit</button>
+      </div>
     )
   }
 }
 
-export default Review;
+export default withRouter(Review);
