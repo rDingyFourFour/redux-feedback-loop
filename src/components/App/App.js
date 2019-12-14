@@ -13,6 +13,11 @@ import Success from '../Success/Success';
 
 
 class App extends Component {
+
+  getFeelings() {
+    axios.get('')
+  }
+
   render() {
     return (
       <div className="App">
