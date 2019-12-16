@@ -11,11 +11,20 @@ import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
 
-
 class App extends Component {
 
-  getFeelings() {
-    axios.get('')
+  componentDidMount() {
+    this.getFeedback();
+  }
+  
+  getFeedback() {
+    axios.get('/feedback')
+    .then(response => {
+      console.log('back from get', response.data);
+    })
+    .catch(function (error) {
+      console.log('error from get', error);
+    })
   }
 
   render() {

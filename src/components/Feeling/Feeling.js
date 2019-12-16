@@ -17,6 +17,7 @@ class Feeling extends Component {
     console.log('handleClick');
     this.props.history.push('/understanding');
     this.props.dispatch({ type: 'FEELINGS', payload: this.state.newFeeling });
+  
   }
     
   render() {
@@ -31,4 +32,8 @@ class Feeling extends Component {
   }
 }
 
-export default (withRouter, connect())(Feeling);
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+})
+
+export default (withRouter, connect(putReduxStateOnProps))(Feeling);

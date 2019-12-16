@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Supported extends Component {
 
+  state = {
+    newSupport: '',
+  }
+
+  handleChange = (event) => {
+    console.log('handleChange')
+    this.setState({ newSupport: event.target.value });
+  } 
+  
   handleClick = () =>
     this.props.history.push('/comments');
 
@@ -18,4 +28,4 @@ class Supported extends Component {
   }
 }
 
-export default withRouter(Supported);
+export default (withRouter, connect())(Supported);
