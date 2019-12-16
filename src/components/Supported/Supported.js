@@ -13,9 +13,11 @@ class Supported extends Component {
     this.setState({ newSupport: event.target.value });
   } 
   
-  handleClick = () =>
+  handleClick = () => {
     this.props.history.push('/comments');
-
+    this.props.dispatch({ type: 'SUPPORTED', payload: this.state.newSupport });
+  }
+    
   render() {
     return (
       <div>
@@ -28,4 +30,8 @@ class Supported extends Component {
   }
 }
 
-export default (withRouter, connect())(Supported);
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+})
+
+export default (withRouter, connect(putReduxStateOnProps))(Supported);

@@ -8,10 +8,10 @@ class Review extends Component {
   addFeedback() {
     console.log('payload', this.props.reduxState);
     let payload = {
-      feeling: this.props.reduxState.feelings.feeling
-      // understanding: this.props.reduxState.understand,
-      // supported: this.props.reduxState.supported,
-      // comments: this.props.reduxState.comments
+      feeling: this.props.reduxState.feelings.feeling,
+      understanding: this.props.reduxState.understanding,
+      supported: this.props.reduxState.supported,
+      comments: this.props.reduxState.comments
     }
     axios.post('/feedback', payload)
       .then(response => {

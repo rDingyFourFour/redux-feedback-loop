@@ -13,9 +13,11 @@ class Understanding extends Component {
     this.setState({ newUnderstanding: event.target.value });
   } 
   
-  handleClick = () =>
+  handleClick = () => {
     this.props.history.push('/supported');
-
+    this.props.dispatch({ type: 'UNDERSTANDING', payload: this.state.newUnderstanding });
+  }
+    
   render() {
     return (
       <div>
@@ -28,4 +30,8 @@ class Understanding extends Component {
   }
 }
 
-export default (withRouter, connect())(Understanding);
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+})
+
+export default (withRouter, connect(putReduxStateOnProps))(Understanding);

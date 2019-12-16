@@ -13,9 +13,11 @@ class Comments extends Component {
     this.setState({ newComment: event.target.value });
   } 
   
-  handleClick = () =>
+  handleClick = () => {
     this.props.history.push('/review');
-
+    this.props.dispatch({ type: 'COMMENTS', payload: this.state.newComment });
+  }
+    
   render() {
     return (
       <div>
@@ -28,4 +30,8 @@ class Comments extends Component {
   }
 }
 
-export default (withRouter, connect())(Comments);
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+})
+
+export default (withRouter, connect(putReduxStateOnProps))(Comments);
